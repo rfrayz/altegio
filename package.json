@@ -1,26 +1,17 @@
-onst express = require('express');
-const bodyParser = require('body-parser');
-
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Мидлвары
-app.use(bodyParser.json());
-
-// Тестовый маршрут
-app.get('/', (req, res) => {
-    res.send('Altegio integration server is running!');
-});
-
-// Вебхук для Altegio
-app.post('/webhook', (req, res) => {
-    console.log("Получены данные от Altegio:", req.body);
-
-    // Здесь позже добавим обработку, уведомления и логику
-    res.status(200).send({ status: "ok" });
-});
-
-// Запуск
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
-});
+{
+  "name": "altegio",
+  "version": "1.0.0",
+  "description": "Altegio project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.5",
+    "dotenv": "^16.3.1"
+  }
+}
